@@ -36,7 +36,8 @@ function RandomQuote(props) {
         if (!cursorEl?.current) return;
         cursorEl.current.removeAttribute('hover');
     }
-    const onLoad = () => {
+
+    React.useEffect(() => {
         fetch('https://programming-quotes-api.herokuapp.com/quotes/random')
             .then(res => res.json())
             .then(data => {
@@ -44,9 +45,8 @@ function RandomQuote(props) {
                 setAuthor(data.author);
             })
             .catch(console.error);
-    }
-
-    React.useEffect(onLoad, []);
+    }, []);
+    
     return (
         <StyledQuote 
             onMouseEnter={onMouseEnter}

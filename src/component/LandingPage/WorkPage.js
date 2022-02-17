@@ -143,7 +143,6 @@ function WorkPage(props) {
                             title={work.title}
                             image={work.image}
                             url={work.url}
-                            description={work.description}
                             onMouseEnter={() => setHoverIndex(index)}
                         />
                     ))

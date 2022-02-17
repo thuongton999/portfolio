@@ -7,7 +7,8 @@ const StyledWorkTile = styled.div`
     display: flex;
     flex-direction: ${props => props.isEven ? 'row' : 'row-reverse'};
     width: 100%;
-    max-height: 175px;
+    min-height: 150px;
+    height: 150px;
 `;
 
 const StyledContentBox = styled(Link)`
@@ -15,6 +16,7 @@ const StyledContentBox = styled(Link)`
     align-items: end;
     color: var(--text);
     width: 50%;
+    height: 100%;
     padding: 10px;
 `;
 const StyledIndex = styled.h1`
@@ -24,11 +26,12 @@ const StyledIndex = styled.h1`
 const StyledTitle = styled.h2`
     font-size: 1rem;
     font-family: var(--textFont);
-    word-break: break-word;
+    word-break: break-all;
 `;
 
 const StyledImageBox = styled.div`
     width: 50%;
+    height: 100%;
     background-color: var(--background);
     overflow: hidden;
 `;

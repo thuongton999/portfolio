@@ -9,19 +9,21 @@ const StyledFooter = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     height: var(--footerHeight);
     color: #6a6b72;
     user-select: none;
     z-index: 99999;
     background-color: var(--background);
+    overflow: hidden;
+`;
 
-    & > * {
-        margin: 0 20px;
-    }
+const StyledNavBar = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--footerHeight);
+    padding: 0 20px;
 `;
 
 const StyledNavs = styled.div`
@@ -67,12 +69,6 @@ function Navs(props) {
     const underlineEl = React.useRef(null);
     const tabRefs = React.useRef([]);
 
-    const onClick = clickEvent => {
-        const target = clickEvent.target;
-        const index = tabRefs.current.indexOf(target);
-        if (index === currentIndex) return;
-        setIndex(index);
-    }
     const onMouseEnter = mouseEnterEvent => {
         if (!cursorEl || !cursorEl.current) return;
         cursorEl.current.setAttribute('hover', true);
@@ -101,7 +97,7 @@ function Navs(props) {
                 <StyledNav 
                     key={index} 
                     ref={el => tabRefs.current.push(el)} 
-                    onClick={onClick}
+                    onClick={() => (index !== currentIndex && setIndex(index))}
                     active={index === currentIndex}>
                     {child}
                 </StyledNav>)}
@@ -112,14 +108,16 @@ function Navs(props) {
 function Footer(props) {
     return (
         <StyledFooter>
-            <Copyright />
-            {/* navs must equal to slideshow childrens */}
-            <Navs {...props}>
-                <p>Me</p>
-                <p>Hello</p>
-                <p>Work</p>
-            </Navs>
-            <Contact />
+            <StyledNavBar>
+                <Copyright />
+                {/* navs must equal to slideshow childrens */}
+                <Navs {...props}>
+                    <p>Me</p>
+                    <p>Hello</p>
+                    <p>Work</p>
+                </Navs>
+                <Contact />
+            </StyledNavBar>
         </StyledFooter>
     );
 }

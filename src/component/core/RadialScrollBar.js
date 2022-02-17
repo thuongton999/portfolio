@@ -3,7 +3,7 @@ import React from "react";
 import ProgressRing from "./ProgressRing";
 
 const BORDER_WIDTH = 3;
-const TRACK_SIZE = 350;
+const TRACK_SIZE = window.innerWidth / 3.5;
 const TRACK_RADIUS = TRACK_SIZE / 2;
 
 const StyledScrollBarTrack = styled.div`

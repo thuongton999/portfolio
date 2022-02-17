@@ -175,8 +175,8 @@ function AudioSphere(props) {
 
     const onWindowResize = (resizeEvent) => {
         if (!renderer || !camera) return;
-        let width = canvasWrapper.current.offsetWidth;
-        let height = canvasWrapper.current.offsetHeight;
+        let width = canvasWrapper.current?.offsetWidth;
+        let height = canvasWrapper.current?.offsetHeight;
 
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
@@ -254,8 +254,8 @@ function AudioSphere(props) {
         if (!frameId) return;
         cancelAnimationFrame(frameId);
         const container = canvasWrapper.current;
-        container.removeEventListener("mousedown", onMouseDown);
-        container.removeEventListener("mouseup", onMouseUp);
+        container?.removeEventListener("mousedown", onMouseDown);
+        container?.removeEventListener("mouseup", onMouseUp);
     }
 
     const onMouseEnter = () => {
@@ -294,8 +294,8 @@ function AudioSphere(props) {
         audio.addEventListener("ended", onAudioEnded);
         window.addEventListener("resize", onWindowResize);
         return () => {
-            audioControl.removeEventListener("click", onClick);
-            audio.removeEventListener("ended", onAudioEnded);
+            audioControl?.removeEventListener("click", onClick);
+            audio?.removeEventListener("ended", onAudioEnded);
             window.removeEventListener('resize', onWindowResize);
             stop();
         };
