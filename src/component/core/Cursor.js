@@ -27,6 +27,7 @@ function Cursor(props) {
 
     const setPosition = (x, y) => {
         const el = cursorEl.current;
+        if (!el) return;
         el.style.left = `${x}px`;
         el.style.top = `${y}px`;
     }
