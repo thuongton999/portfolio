@@ -36,7 +36,7 @@ const StyledPostOverview = styled(Link)`
 
 const StyledImage = styled(LazyImage)`
     width: 100%;
-    max-height: 175px;
+    max-height: 300px;
     background-color: var(--primary);
 `;
 
