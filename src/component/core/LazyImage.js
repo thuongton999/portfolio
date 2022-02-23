@@ -9,7 +9,7 @@ const imgObserver = createObserver(entry => {
     img.classList.add('fade-in');
     img.removeAttribute('data-src');
     imgObserver.unobserve(img);
-}, { rootMargin: '100px' });
+});
 
 // only 95 bytes
 const placeHolderImage = 'https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png';

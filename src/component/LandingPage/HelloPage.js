@@ -5,6 +5,7 @@ import Maintain from "../core/Maintain";
 import TextAround from "../core/TextAround";
 import AudioSphere from "../core/AudioSphere";
 import useStore from "../../hook/useStore";
+import { vh } from "../utils/_CSSUnits";
 
 const Rotate = keyframes`
     0% {transform: rotate(0deg);}
@@ -16,7 +17,7 @@ const StyledHelloPage = styled(StyledLandingPage)`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('https://www.wykop.pl/cdn/c3201142/comment_OAqGsPLvilIHGJLggfIbUe6i4lT2fDZ2.gif');
+    background-image: url(https://www.wykop.pl/cdn/c3201142/comment_OAqGsPLvilIHGJLggfIbUe6i4lT2fDZ2.gif);
 
     &::before {
         content: '';
@@ -82,7 +83,7 @@ function HelloPage(props) {
             {React.useMemo(() => {return <AudioSphere src={`${process.env.PUBLIC_URL}/audios/paradise_circus.mp3`} />}, [])}
             <TextAround 
                 texts={mySkills} 
-                radius={250}
+                radius={vh(40)}
                 active={index === componentIndex} />
             <StyledHelloWorld>
                 <Maintain componentIndex={componentIndex}>

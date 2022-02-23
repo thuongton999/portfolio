@@ -55,7 +55,6 @@ class ParticlesSphere {
         for (let i = -1; i <= 1; i += this.step) {
             const phi = Math.acos(i);
             const theta = (2 * this.turns * phi) % (2 * Math.PI);
-
             // Note that y and z are flipped in the following calculations 
             // since the cartesian coordinate system is in a different rotation
             // in Three.js than it typically is visualized in math courses

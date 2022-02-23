@@ -16,6 +16,7 @@ const StyledCursor = styled.div`
     z-index: 999999999;
 
     &[hover=true] {
+        cursor: pointer;
         width: 40px;
         height: 40px;
     }

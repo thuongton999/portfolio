@@ -21,7 +21,7 @@ const StyledText = styled.li`
     opacity: calc(var(--opacity) * 1);
     font-family: var(--codeFont);
     font-weight: bold;
-    filter: drop-shadow(0 0 10px var(--background));
+    text-shadow: 0 0 10px var(--background);
     z-index: 9999999;
     transition: all 0.5s ease;
 `;

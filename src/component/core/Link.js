@@ -3,6 +3,7 @@ import useStore from "../../hook/useStore";
 
 const StyledLink = styled.a`
     color: ${props => props.color || "currentColor"};
+    cursor: pointer;
     text-decoration: none;
 `;
 

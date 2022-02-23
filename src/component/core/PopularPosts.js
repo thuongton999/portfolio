@@ -76,14 +76,14 @@ function PopularsPost(props) {
     React.useEffect(() => {
         const observer = createObserver((entry) => {
             if (!entry.isIntersecting) return;
-            fetch('./data/posts.json')
+            fetch(`${process.env.PUBLIC_URL}/data/posts.json`)
                 .then(res => res.json())
                 .then(urls => getPopularPosts(urls)
                     .then(posts => setPosts(posts)))
             observer.unobserve(entry.target);
-        }, { rootMargin: '100px'});
+        });
         observer.observe(postsContainer.current);
-    }, []);
+    }, [props.container]);
     return (
         <StyledPopularPosts ref={postsContainer}>
             <h1>Blogs</h1>

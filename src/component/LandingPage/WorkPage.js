@@ -6,8 +6,8 @@ import WorkTile from '../core/WorkTile';
 import PageSwitcher from '../core/PageSwitcher';
 import useStore from "../../hook/useStore";
 import TextAround from "../core/TextAround";
-import createObserver from "../utils/_LazyLoad";
 import { getMeta } from "../utils/SEO";
+import { vh } from "../utils/_CSSUnits";
 
 const StyledWorkPage = styled(StyledLandingPage)`
     display: flex;
@@ -96,14 +96,10 @@ function WorkPage(props) {
     const getSectionIndex = () => sections.indexOf(works[hoverIndex]?.section);
 
     React.useEffect(() => {
-        const observer = createObserver((entry) => {
-            if (!entry.isIntersecting) return;
-            fetch('./data/works.json')
-                .then(res => res.json())
-                .then(data => getWorks(data)
-                    .then(works => setWorks(works)));
-        }, { rootMargin: '100px'});
-        observer.observe(worksEl.current);
+        fetch(`${process.env.PUBLIC_URL}/data/works.json`)
+            .then(res => res.json())
+            .then(data => getWorks(data)
+                .then(works => setWorks(works)));
     }, []);
 
     React.useEffect(() => {
@@ -127,7 +123,7 @@ function WorkPage(props) {
                     texts={sections}
                     activeAt={getSectionIndex()}
                     active={isOnPage()}
-                    radius={110}
+                    radius={vh(18)}
                 />
             </StyledSwitcher>
             <StyledMaintain componentIndex={componentIndex}>
