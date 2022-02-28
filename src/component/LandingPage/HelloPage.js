@@ -80,7 +80,7 @@ function HelloPage(props) {
     
     return (
         <StyledHelloPage>
-            {React.useMemo(() => {return <AudioSphere src={`${process.env.PUBLIC_URL}/audios/paradise_circus.mp3`} />}, [])}
+            {React.useMemo(() => {return <AudioSphere src={`${process.env.PUBLIC_URL}/audios/river.mp3`} />}, [])}
             <TextAround 
                 texts={mySkills} 
                 radius={vh(40)}
