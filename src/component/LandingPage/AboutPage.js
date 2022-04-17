@@ -78,6 +78,7 @@ const StyledHeader = styled.h1`
         padding: 5px;
         box-sizing: border-box;
         white-space: nowrap;
+        filter: drop-shadow(0 0 10px var(--background));
         background-size: 200% 200%;
         background-image: repeating-linear-gradient(
             -55deg,

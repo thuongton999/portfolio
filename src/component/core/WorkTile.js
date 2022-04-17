@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import LazyImage from './LazyImage';
-import Link from './Link';
 import useStore from "../../hook/useStore";
 
 const StyledWorkTile = styled.div`
@@ -8,25 +7,42 @@ const StyledWorkTile = styled.div`
     flex-direction: ${props => props.isEven ? 'row' : 'row-reverse'};
     width: 100%;
     min-height: 150px;
-    height: 150px;
+
+    // mobile
+    @media (max-width: 768px) {
+        min-height: 200px;
+    }
 `;
 
-const StyledContentBox = styled(Link)`
-    display: flex;
-    align-items: end;
+const StyledContentBox = styled.a`
+    --padding: 1rem;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
     color: var(--text);
     width: 50%;
     height: 100%;
-    padding: 10px;
+    padding: var(--padding);
+    font-size: 1rem;
+    font-family: var(--textFont);
+    word-break: break-word;
+    overflow-y: scroll;
+    ::after {
+        content: '';
+        position: absolute;
+        inset: calc(var(--padding) / 2);
+        ${props => props.isEven ? 'border-left: ' : 'border-right: '}2px solid var(--text);
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 const StyledIndex = styled.h1`
     font-family: var(--headerFont);
     font-size: 5rem;
-`;
-const StyledTitle = styled.h2`
-    font-size: 1rem;
-    font-family: var(--textFont);
-    word-break: break-all;
+    float: right;
 `;
 
 const StyledImageBox = styled.div`
@@ -57,9 +73,9 @@ function WorkTile(props) {
     };
     return (
         <StyledWorkTile isEven={index % 2 === 0} {...props}>
-            <StyledContentBox href={url}>
-                <StyledTitle>{title}</StyledTitle>
+            <StyledContentBox href={url} isEven={index % 2 === 0}>
                 <StyledIndex>{index}</StyledIndex>
+                {title}
             </StyledContentBox>
             <StyledImageBox onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
                 <StyledLazyImage src={image}/>

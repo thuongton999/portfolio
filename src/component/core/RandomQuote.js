@@ -4,6 +4,7 @@ import useStore from "../../hook/useStore";
 
 const StyledQuote = styled.div`
     padding: 1rem;
+    width: 100%;
     color: var(--background);
     background-color: var(--text);
     h1 {

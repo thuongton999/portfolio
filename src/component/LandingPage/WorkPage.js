@@ -6,8 +6,8 @@ import WorkTile from '../core/WorkTile';
 import PageSwitcher from '../core/PageSwitcher';
 import useStore from "../../hook/useStore";
 import TextAround from "../core/TextAround";
-import { getMeta } from "../utils/SEO";
 import { vh } from "../utils/_CSSUnits";
+import { getWorks } from '../utils/_FetchData';
 
 const StyledWorkPage = styled(StyledLandingPage)`
     display: flex;
@@ -64,18 +64,6 @@ const StyledMaintain = styled(Maintain)`
     margin-top: 50px;
 `;
 
-async function getWorks(works) {
-    try {
-        const metaData = await Promise.all(works.map(work => getMeta(work.url)));
-        return metaData.map((meta, index) => ({
-            ...works[index],
-            ...meta,
-        }));
-    } catch (error) {
-        console.log(error);
-    }
-}
-
 function WorkPage(props) {
     const { componentIndex, center, moveSlide } = props;
     const [hoverIndex, setHoverIndex] = React.useState(0);
@@ -128,7 +116,7 @@ function WorkPage(props) {
             </StyledSwitcher>
             <StyledMaintain componentIndex={componentIndex}>
                 <h1>Work</h1>
-                <p>There are two types of people in the world, those who understand binary codes, and those who don't.</p>
+                <p>There are 10 types of people in the world, those who understand binary codes, and those who don't.</p>
             </StyledMaintain>
             <StyledWorks ref={worksEl}>
                 {React.useMemo(() => {

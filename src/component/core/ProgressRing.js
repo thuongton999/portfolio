@@ -20,7 +20,6 @@ const StyledRing = styled.circle`
 function ProgressRing(props) {
     const { radius, stroke, progress, color, pRef } = props;
 
-    // 
     const cRadius = radius + stroke / 2;
     const normalizedRadius = cRadius - stroke;
     const circumference = normalizedRadius * 2 * Math.PI;

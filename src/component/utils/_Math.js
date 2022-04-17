@@ -4,6 +4,8 @@ const degToRad = degrees => degrees * Math.PI / 180;
 const radToDeg = radians => radians * 180 / Math.PI;
 // convert degrees to perpendicular coordinates
 const perpendicular = degrees => degrees - Math.PI / 2;
+// round to decimal places
+const round = (num, places) => Math.round((num + Number.EPSILON) * (Math.pow(10, places))) / Math.pow(10, places);
 
 const random = base => {
     if (Array.isArray(base)) return Math.random() * (base[1] - base[0]) + base[0];
@@ -19,4 +21,5 @@ function lerp(current, target, speed = 0.1, limit = 0.001) {
     return change;
 }
 
-export { degToRad, radToDeg, perpendicular, random, pickRandom, lerp };
+
+export { degToRad, radToDeg, perpendicular, random, pickRandom, lerp, round };

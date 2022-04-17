@@ -11,7 +11,7 @@ function IonIcon(props) {
         pointerEvents: 'none',
     };
     return (
-        <ion-icon name={icon} style={style} />
+        <ion-icon name={icon} style={style}/>
     );
 };
 

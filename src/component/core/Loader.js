@@ -6,7 +6,7 @@ const Loader = styled(StyledLandingPage)`
     background-image: url(https://www.wykop.pl/cdn/c3201142/comment_OAqGsPLvilIHGJLggfIbUe6i4lT2fDZ2.gif);
     &::before {
         content: 'LOADING';
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);

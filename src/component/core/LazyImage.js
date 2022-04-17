@@ -15,6 +15,8 @@ const imgObserver = createObserver(entry => {
 const placeHolderImage = 'https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png';
 const StyledImage = styled.img`
     object-fit: cover;
+    width: 100%;
+    height: 100%;
 `;
 
 function LazyImage(props) {
@@ -26,12 +28,13 @@ function LazyImage(props) {
     }, []);
     
     return (
-        <StyledImage 
-            ref={img}
-            src={placeHolderImage}
-            data-src={src}
-            alt=''
-            className={className}/>
+        <div className={className}>
+            <StyledImage 
+                ref={img}
+                src={placeHolderImage}
+                data-src={src}
+                alt=''/>
+        </div>
     );
 }
 

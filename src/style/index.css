@@ -19,6 +19,13 @@
   --footerHeight: 50px;
 }
 
+/* mobile */
+@media screen and (max-width: 768px) {
+  :root {
+    --footerHeight: 40px;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

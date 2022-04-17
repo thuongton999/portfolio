@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import LazyImage from './LazyImage';
-import Link from './Link';
 import React from 'react';
 import createObserver from '../utils/_LazyLoad';
-import { getMeta } from '../utils/SEO';
-
+import CrossLink from './CrossLink';
+import { getPopularPosts } from '../utils/_FetchData';
 const StyledPopularPosts = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 2rem;
@@ -26,31 +24,29 @@ const StyledPosts = styled.div`
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
+
+    // mobile
+    @media (max-width: 376px) {
+        flex-direction: column;
+    }
 `;
 
-const StyledPostOverview = styled(Link)`
+const StyledPostOverview = styled(CrossLink)`
     font-family: var(--textFont);
     // width = 50% - gap/2
     width: calc(50% - 5px);
+
+    // mobile
+    @media (max-width: 376px) {
+        width: 100%;
+    }
 `;
 
 const StyledImage = styled(LazyImage)`
     width: 100%;
-    max-height: 300px;
-    background-color: var(--primary);
+    min-height: 200px;
+    height: fit-content;
 `;
-
-async function getPopularPosts(postsUrl) {
-    try {
-        const metaData = await Promise.all(postsUrl.map(url => getMeta(url)));
-        return metaData.map((meta, index) => ({
-            url: postsUrl[index],
-            ...meta
-        }));
-    } catch (message) {
-        return console.error(message);
-    }
-}
 
 function PostOverview(props) {
     const { title, url, image } = props;

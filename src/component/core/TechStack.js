@@ -16,7 +16,7 @@ const StyledTechStack = styled.div`
     }
 
     & > img {
-        min-width: 2rem;
+        object-fit: cover;
         min-height: 28px;
         background-color: var(--primary);
         transition: transform 0.2s ease-in-out;

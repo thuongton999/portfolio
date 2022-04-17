@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import IonIcon from "./IonIcon";
-import Link from "./Link";
+import CrossLink from "./CrossLink";
 
 const StyledContact = styled.div`
     display: flex;
@@ -10,7 +10,7 @@ const StyledContact = styled.div`
     gap: 10px;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(CrossLink)`
     transition: all 0.3s ease;
 
     &:hover {
@@ -21,7 +21,8 @@ const StyledLink = styled(Link)`
 
 function ContactLink(props) {
     return (
-        <StyledLink href={props.href}>
+        <StyledLink 
+            href={props.href}>
             {props.placeholder}
             <IonIcon icon={props.icon} size="large"/>
         </StyledLink>

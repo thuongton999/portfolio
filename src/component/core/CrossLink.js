@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import useStore from "../../hook/useStore";
+import styled from 'styled-components';
+import useStore from '../../hook/useStore';
 
-const StyledLink = styled.a`
+const StyledCrossLink = styled.a`
     color: ${props => props.color || "currentColor"};
     cursor: pointer;
     text-decoration: none;
 `;
 
-function Link(props) {
+function CrossLink(props) {
     const cursorEl = useStore(state => state.cursorRef);
     const onMouseEnter = () => {
         if (!cursorEl || !cursorEl.current) return;
@@ -18,13 +18,14 @@ function Link(props) {
         cursorEl.current.removeAttribute('hover');
     };
     return (
-        <StyledLink 
+        <StyledCrossLink 
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            {...props}>
+            className={props.className}
+            href={props.href}>
             {props.children}
-        </StyledLink>
+        </StyledCrossLink>
     );
 }
 
-export default Link;
+export default CrossLink;

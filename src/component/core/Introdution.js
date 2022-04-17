@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import Link from "../core/Link";
 import RandomQuote from './RandomQuote';
+import LazyImage from './LazyImage';
+import CrossLink from './CrossLink';
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(CrossLink)`
     color: var(--secondary);
 `;
 
@@ -20,6 +21,7 @@ const StyledIntrodution = styled.div`
     & > h2 {
         font-size: 1.5rem;
         margin-top: 1rem;
+        text-align: center;
     }
     & > ul {
         position: relative;
@@ -40,12 +42,26 @@ const StyledIntrodution = styled.div`
             text-indent: 1rem;
         }
     }
+
+    // mobile
+    @media (max-width: 768px) {
+        & > h1 {
+            font-size: 1.5rem;
+        }
+    }
+`;
+
+const StyledImage = styled(LazyImage)`
+    position: relative;
+    width: 100%;
+    left: -1rem;
+    top: 10px;
 `;
 
 function Introdution(props) {
     return (
         <StyledIntrodution>
-            <h1>Hi everyone, I'm Vu Tung Minh<br />(a.k.a thuongton999)</h1>
+            <h1>HELLO WORLD 🌏!<br />I'm Vu Tung Minh<br />(a.k.a thuongton999)</h1>
             <RandomQuote />
             <h2>Who am I?</h2>
             <ul>
@@ -60,12 +76,21 @@ function Introdution(props) {
                     <StyledLink href='https://fct-club.com/'> FCTC (FPT-Software Computer Talents Club)</StyledLink>.
                     You can see my dumb face <StyledLink href='https://fct-club.com/2020-members/'>here</StyledLink>, my member code is 01.35.
                 </li>
+                <li>
+                    A random meme:
+                    <StyledImage src='https://random-memer.herokuapp.com/' alt='programming meme' />
+                </li>
             </ul>
-            <h2>Achievements</h2>
+            <h2>Sometimes we win, 
+                sometimes we learn!</h2>
             <ul>
                 <li>Second Prize 🥈 in
                     <StyledLink href='https://codelearn.io/fights/detail/5064803'> FPT Techday 2020 Code Warrior.</StyledLink>
                 </li>
+                <li>Completed course
+                    <StyledLink href="https://www.coursera.org/account/accomplishments/verify/SFRZFNEQVMG6"> Programming Language Part A</StyledLink> at Coursera
+                </li>
+                <li>...</li>
             </ul>
         </StyledIntrodution>
     )
