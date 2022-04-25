@@ -20,6 +20,7 @@ const StyledMobileNavbar = styled.nav`
     font-size: 1.5rem;
     font-family: var(--codeFont);
     transition: all 0.2s ease-in-out;
+    z-index: 100;
 
     & > svg {
         display: none;

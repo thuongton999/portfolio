@@ -1,14 +1,15 @@
 import styled from 'styled-components'; 
 import React from 'react';
 import { getWorks } from '../utils/_FetchData';
+import WorkTile from '../core/WorkTile';
 
 const StyledPage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 1rem 2rem 2rem var(--footerHeight);
+    overflow-y: scroll;
 `;
 
 const StyledHeader = styled.header`
@@ -21,6 +22,15 @@ const StyledHeader = styled.header`
         font-size: 1.5rem;
         font-family: var(--codeFont);
         color: var(--primary);
+    }
+    h1 {
+        background-image: url(https://i.pinimg.com/originals/5a/df/20/5adf204e1116e22671c0c8d1fd02d78c.gif);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0px 0px 5px var(--primary));
     }
 `;
 
@@ -39,6 +49,7 @@ const StyledSectionsBar = styled.div`
     border-bottom: 2px solid var(--primary);
     scroll-behavior: smooth;
     position: relative;
+    margin-bottom: 2rem;
 `;
 
 const StyledSections = styled.ul`
@@ -106,7 +117,16 @@ function MobileWorksPage(props) {
                 </StyledSections>
                 <TwoSideShadow ref={shadow}/>
             </StyledSectionsBar>
-            {/* {works.map((work, index) => <WorkTile key={work.url} index={index} {...work} />)} */}
+            {React.useMemo(() => {
+                return works.map((work, index) => (
+                    <WorkTile
+                        key={index}
+                        index={index}
+                        title={work.title}
+                        image={work.image}
+                        url={work.url}/>
+                ))
+            }, [works])}
         </StyledPage>
     )
 }

@@ -7,10 +7,15 @@ const StyledWorkTile = styled.div`
     flex-direction: ${props => props.isEven ? 'row' : 'row-reverse'};
     width: 100%;
     min-height: 150px;
+    overflow: hidden;
 
     // mobile
-    @media (max-width: 768px) {
+    @media (max-width: 1023px) {
+        position: relative;
         min-height: 200px;
+        margin-bottom: 2rem;
+        border: 2px solid var(--primary);
+        border-radius: 1rem;
     }
 `;
 
@@ -38,6 +43,15 @@ const StyledContentBox = styled.a`
     &::-webkit-scrollbar {
         display: none;
     }
+    // mobile
+    @media (max-width: 426px) {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        backdrop-filter: contrast(0.5) blur(2px);
+        font-size: 1.5rem;
+        text-shadow: 0 0 2px var(--primary);
+    }
 `;
 const StyledIndex = styled.h1`
     font-family: var(--headerFont);
@@ -50,6 +64,10 @@ const StyledImageBox = styled.div`
     height: 100%;
     background-color: var(--background);
     overflow: hidden;
+    // mobile
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 const StyledLazyImage = styled(LazyImage)`
     width: 100%;
