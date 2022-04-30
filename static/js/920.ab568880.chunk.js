@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkthuongton999=self.webpackChunkthuongton999||[]).push([[920],{8920:function(n,t,u){u.r(t);var e=u(184);t.default=function(){return(0,e.jsx)("div",{children:"This page is under construction"})}}}]);
+//# sourceMappingURL=920.ab568880.chunk.js.map

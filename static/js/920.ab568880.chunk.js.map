@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/920.ab568880.chunk.js","mappings":"qIAMA,UANA,WACI,OACI","sources":["component/MobilePage/MobileHelloPage.js"],"sourcesContent":["function MobileHelloPage() {\r\n    return (\r\n        <div>This page is under construction</div>\r\n    );\r\n}\r\n\r\nexport default MobileHelloPage;"],"names":[],"sourceRoot":""}
