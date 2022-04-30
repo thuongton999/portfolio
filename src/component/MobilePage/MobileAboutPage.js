@@ -4,7 +4,7 @@ import Introdution from "../core/Introdution";
 import PopularsPost from "../core/PopularPosts";
 import TechStack from "../core/TechStack";
 
-const StyledContent = styled.div`
+const StyledContent = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,7 +86,7 @@ const StyledFixedBackground = styled.div`
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    background-image: url('https://i.pinimg.com/originals/cc/03/ff/cc03ff83c073fae8a3cf498cbd96df64.gif');
+    background-image: url(${process.env.PUBLIC_URL}/images/about-mobile-cover.gif);
 `;
 
 function MobileAboutPage(props) {

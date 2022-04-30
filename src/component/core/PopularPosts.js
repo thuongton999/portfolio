@@ -44,8 +44,7 @@ const StyledPostOverview = styled(CrossLink)`
 
 const StyledImage = styled(LazyImage)`
     width: 100%;
-    min-height: 200px;
-    height: fit-content;
+    aspect-ratio: 16 / 9;
 `;
 
 function PostOverview(props) {
@@ -65,8 +64,12 @@ function PostOverview(props) {
     )
 }
 
+const sample = [
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+]
 function PopularsPost(props) {
-    const [posts, setPosts] = React.useState([]);
+    const [posts, setPosts] = React.useState(sample);
     const postsContainer = React.useRef(null);
 
     React.useEffect(() => {

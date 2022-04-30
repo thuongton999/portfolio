@@ -8,7 +8,6 @@ const StyledWorkTile = styled.div`
     width: 100%;
     min-height: 150px;
     overflow: hidden;
-
     // mobile
     @media (max-width: 1023px) {
         position: relative;
@@ -62,10 +61,10 @@ const StyledIndex = styled.h1`
 const StyledImageBox = styled.div`
     width: 50%;
     height: 100%;
-    background-color: var(--background);
+    background-color: var(--primary);
     overflow: hidden;
     // mobile
-    @media (max-width: 768px) {
+    @media (max-width: 1023px) {
         width: 100%;
     }
 `;

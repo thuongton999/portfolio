@@ -153,7 +153,7 @@ function AboutPage(props) {
                     <PopularsPost />
                 </StyledContent>
             ), [])}
-            <StyledImage src='https://images.squarespace-cdn.com/content/v1/53c54574e4b046e5507a54a7/1540910164814-VCU579ZJU0TWIOQDMV5W/image-asset.octet-stream?format=500w' />
+            <StyledImage src={process.env.PUBLIC_URL+"/images/about-desktop-cover.gif"} />
         </StyledAboutPage>
     );
 }

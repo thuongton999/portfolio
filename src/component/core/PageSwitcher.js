@@ -77,7 +77,7 @@ const StyledSwitcher = styled.div`
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        background-image: url(https://thumbs.gfycat.com/AromaticRecklessCaecilian-size_restricted.gif);
+        background-image: url(${process.env.PUBLIC_URL}/images/switcher.gif);
     }
 `;
 

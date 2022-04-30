@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 
 const MobileAboutPage = React.lazy(() => import('./MobilePage/MobileAboutPage'));
 const MobileWorksPage = React.lazy(() => import('./MobilePage/MobileWorksPage'));
+const MobileHelloPage = React.lazy(() => import('./MobilePage/MobileHelloPage'));
 
 const StyledMobile = styled(LandingPage)`
     display: flex;
@@ -26,7 +27,8 @@ function Mobile(props) {
             <React.Suspense fallback={<Loader />}>
                 <SVGFilters />
                 <Routes>
-                    <Route path='*' element={<div>404</div>} />
+                    <Route path='*' element={<Loader />} />
+                    <Route path="/" element={<MobileHelloPage />} />
                     <Route path='/about' element={<MobileAboutPage />} />
                     <Route path='/works' element={<MobileWorksPage />} />
                 </Routes>

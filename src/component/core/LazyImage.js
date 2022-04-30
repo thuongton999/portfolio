@@ -4,11 +4,10 @@ import createObserver from '../utils/_LazyLoad';
 
 const imgObserver = createObserver(entry => {
     if (!entry.isIntersecting) return;
+    if (!entry.target.dataset.src) return;
     const img = entry.target;
     img.src = img.dataset.src;
-    img.classList.add('fade-in');
     img.removeAttribute('data-src');
-    imgObserver.unobserve(img);
 });
 
 // only 95 bytes
@@ -24,8 +23,10 @@ function LazyImage(props) {
     const img = React.useRef(null);
 
     React.useEffect(() => {
-        imgObserver.observe(img.current);
-    }, []);
+        const imgDOM = img.current;
+        imgObserver.observe(imgDOM);
+        return () => imgObserver.unobserve(imgDOM);
+    }, [src]);
     
     return (
         <div className={className}>

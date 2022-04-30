@@ -15,7 +15,7 @@ const StyledWorkPage = styled(StyledLandingPage)`
     justify-content: flex-end;
     align-items: start;
     padding-right: 5vw;
-    background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2438013375536944117/AD8660D75A18C0253FD4237689978206AB1B83C3/?imw=1024&imh=541&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
+    background-image: url(${process.env.PUBLIC_URL}/images/works-desktop-cover.gif);
 
     position: relative;
     &::before {
@@ -30,8 +30,8 @@ const StyledWorkPage = styled(StyledLandingPage)`
 const StyledWorks = styled.div`
     display: flex;
     flex-direction: column;
-    width: 600px;
     height: 100vh;
+    aspect-ratio: 9 / 16;
     border-left: 5px solid var(--primary);
     border-right: 5px solid var(--primary);
     box-shadow: 0px 0px 20px var(--background);
@@ -64,10 +64,17 @@ const StyledMaintain = styled(Maintain)`
     margin-top: 50px;
 `;
 
+const sample = [
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+];
 function WorkPage(props) {
     const { componentIndex, center, moveSlide } = props;
     const [hoverIndex, setHoverIndex] = React.useState(0);
-    const [works, setWorks] = React.useState([]);
+    const [works, setWorks] = React.useState(sample);
     const goToNextPage = useStore(state => state.nextPage);
     const goToPrevPage = useStore(state => state.prevPage);
     const index = useStore(state => state.slideIndex);

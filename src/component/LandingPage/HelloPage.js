@@ -17,7 +17,7 @@ const StyledHelloPage = styled(StyledLandingPage)`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(https://www.wykop.pl/cdn/c3201142/comment_OAqGsPLvilIHGJLggfIbUe6i4lT2fDZ2.gif);
+    background-image: url(${process.env.PUBLIC_URL}/images/home-desktop-background.gif);
 
     &::before {
         content: '';

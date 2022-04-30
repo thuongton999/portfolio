@@ -44,7 +44,7 @@ const StyledSwitcher = styled.div`
     border-radius: 50%;
     border: 2px solid var(--text);
     color: ${props => props.active ? 'var(--text)' : 'var(--secondary)'};
-    background-image: url('https://media1.giphy.com/media/2aQbzz02eLbJAZWbdY/giphy.gif');
+    background-image: url(${process.env.PUBLIC_URL}/images/default-icon-background.gif);}});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

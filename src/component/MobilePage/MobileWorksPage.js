@@ -3,7 +3,7 @@ import React from 'react';
 import { getWorks } from '../utils/_FetchData';
 import WorkTile from '../core/WorkTile';
 
-const StyledPage = styled.div`
+const StyledPage = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +24,7 @@ const StyledHeader = styled.header`
         color: var(--primary);
     }
     h1 {
-        background-image: url(https://i.pinimg.com/originals/5a/df/20/5adf204e1116e22671c0c8d1fd02d78c.gif);
+        background-image: url(${process.env.PUBLIC_URL}/images/works-mobile-header-background.gif);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -76,9 +76,16 @@ const StyledSection = styled.li`
         color: var(--secondary);
     }
 `;
+const sample = [
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+    {title: "", image: " ", url: ""},
+];
 
 function MobileWorksPage(props) {
-    const [works, setWorks] = React.useState([]);
+    const [works, setWorks] = React.useState(sample);
     const shadow = React.useRef(null);
     let sections = {};
     for (const work of works) {
