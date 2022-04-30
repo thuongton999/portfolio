@@ -31,7 +31,7 @@ const StyledWorks = styled.div`
     display: flex;
     flex-direction: column;
     height: 100vh;
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 8 / 10;
     border-left: 5px solid var(--primary);
     border-right: 5px solid var(--primary);
     box-shadow: 0px 0px 20px var(--background);
