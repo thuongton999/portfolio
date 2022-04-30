@@ -36,6 +36,8 @@ const StyledContentBox = styled.a`
         position: absolute;
         inset: calc(var(--padding) / 2);
         ${props => props.isEven ? 'border-left: ' : 'border-right: '}2px solid var(--text);
+        border-top-${props => props.isEven ? 'left' : 'right'}-radius: 1rem;
+        height: 100%;
     }
     -ms-overflow-style: none;
     scrollbar-width: none;

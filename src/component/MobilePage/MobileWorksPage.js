@@ -38,7 +38,33 @@ const TwoSideShadow = styled.div`
     position: absolute;
     inset: 0 -1px 0 -1px;
     pointer-events: none;
+    box-shadow: var(--background) -1rem 0 20px 5px inset;
     transition: box-shadow 0.2s ease-in-out;
+    ::after {
+        content: "→";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(50%, -50%);
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    &[side="left"] {
+        box-shadow: var(--background) -1rem 0 20px 5px inset;
+        ::after {
+            content: "→";
+            transform: translate(50%, -50%);
+        }
+    }
+    &[side="right"] {
+        box-shadow: var(--background) 1rem 0 20px 5px inset;
+        
+        ::after {
+            content: "←";
+            right: 100%;
+            transform: translate(50%, -50%);
+        }
+    }
 `;
 
 const StyledSectionsBar = styled.div`
@@ -102,13 +128,14 @@ function MobileWorksPage(props) {
     }, [])
 
     const onSectionBarScroll = (scrollEvent) => {
+        if (!shadow?.current) return;
         let scrollX = Math.round(scrollEvent.target.scrollLeft);
         let scrollWidth = scrollEvent.target.scrollWidth - scrollEvent.target.clientWidth;
         // left shadow
         if (scrollX === scrollWidth) {
-            shadow.current.style.boxShadow = "var(--background) 1rem 0 20px 5px inset";
+            shadow.current.setAttribute("side", "right");
         } else if (scrollX === 0) {
-            shadow.current.style.boxShadow = "var(--background) -1rem 0 20px 5px inset";
+            shadow.current.setAttribute("side", "left");
         }
     }
 

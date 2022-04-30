@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import RandomQuote from './RandomQuote';
-import LazyImage from './LazyImage';
+import RandomMeme from './RandomMeme';
 import CrossLink from './CrossLink';
 
 const StyledLink = styled(CrossLink)`
@@ -51,13 +51,6 @@ const StyledIntrodution = styled.div`
     }
 `;
 
-const StyledImage = styled(LazyImage)`
-    position: relative;
-    width: 100%;
-    left: -1rem;
-    top: 10px;
-`;
-
 function Introdution(props) {
     return (
         <StyledIntrodution>
@@ -76,10 +69,7 @@ function Introdution(props) {
                     <StyledLink href='https://fct-club.com/'> FCTC (FPT-Software Computer Talents Club)</StyledLink>.
                     You can see my dumb face <StyledLink href='https://fct-club.com/2020-members/'>here</StyledLink>, my member code is 01.35.
                 </li>
-                <li>
-                    A random meme:
-                    <StyledImage src='https://random-memer.herokuapp.com/' alt='programming meme' />
-                </li>
+                <li><RandomMeme /></li>
             </ul>
             <h2>Sometimes we win, 
                 sometimes we learn!</h2>

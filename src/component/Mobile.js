@@ -27,7 +27,7 @@ function Mobile(props) {
             <React.Suspense fallback={<Loader />}>
                 <SVGFilters />
                 <Routes>
-                    <Route path='*' element={<Loader />} />
+                    <Route path='*' element={<div>This page is under construction</div>} />
                     <Route path="/" element={<MobileHelloPage />} />
                     <Route path='/about' element={<MobileAboutPage />} />
                     <Route path='/works' element={<MobileWorksPage />} />
